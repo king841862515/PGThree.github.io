@@ -4,10 +4,90 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script type="text/javascript"  src = "../jqury/jquery-3.4.1.js"></script>
+
+
+       <style type="text/css">
+       	.option  li{
+       		height: 500px;
+       		width: 800px;
+       		border: 1px solid black;
+       		display: none;
+       	}
+         
+         li.active{
+        	  display: block ;
+        }
+
+       </style>
+
+        <script type="text/javascript">
+        	$(function(){
+
+        		$(".button").click(function(){
+        			        
+        			    while(n<5){
+        			    	$("div li").eq(n).addClass('active');
+
+        			    	
+        			    }
+        			  
+        			  
+        			 // console.log($("div li").eq(2));
+        		})
+            
+        	})
+
+
+        	 // window.onload = function(){
+
+        	 // }
+        </script>
+
+
+
 </head>
 <body>
-	   
+	   <button class="button">press</button>
 
+<div    class = "option">
+    <ul>
+          <li>aaaaaaa</li>
+          <li>ssssss</li>
+          <li  >少时诵诗书</li>
+          <li>少时诵诗书所</li>
+          <li>少时诵诗书所</li>
+    </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
 	    <script type="text/javascript">
 	    	let a = 10;
 	    	console.log(a);
@@ -16,10 +96,17 @@
            
 
 
-	    </script>
+    $(document).ready(funtion){
+
+    }
+
+         // 简写
+    $(funtion(){
+    	
+    })	    </script>
 
 
-
+ -->
 
 </body>
 </html>

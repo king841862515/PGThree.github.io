@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+ <style type="text/css">
+	
+	.center .a,.b,.c{
+		margin-bottom: 10px; 
+		vertical-align: middle;
+		border: 1px solid green;
+		border-radius: 5px;
+	}
+
+    .button{
+
+    	border-radius: 50%;
+    }
+    .btn{
+    	border:1px solid gray;
+    	width: 80px;
+    	height: 80px;
+    	border-radius:40px;
+    	
+    }
+    
+     .context{
+     	display: none;
+     }
+
+      .active{
+      	display:block;
+        width: 1600px;
+     	padding: 5px;
+     	margin: 0 auto;
+     	margin-top: 100px;
+     	border: 1px solid yellow;
+     	border-radius: 5px 5px;
+     	text-align: left;
+     	vertical-align: middle;
+
+
+
+
+      }
+</style>
+
+</head>
+
+<body>
+    		<div  align="center"  class="center" >
+    			
+           PLAN A <textarea class="a" rows="4" cols="200" id="aaa"></textarea>
+           <br/>
+		   PLAN B <textarea class="b" rows="4" cols="200" id="bbb"></textarea>
+           <br/>
+           PLAN C <textarea class="c" rows="4" cols="200" id ="ccc"></textarea>
+           <br/>
+
+    		</div>
+    
+          
+
+
+
+            <br/><br/><br/>
+
+            <div align="right" class="button">
+            	
+			<button class="btn" onclick='file()'   >生成文件！</button>
+
+            </div>
+
+
+             <div class="context "  id="abc" ></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript">
+
+
+
+
+        function file() {
+        		var aaa = document.getElementById("aaa").value;
+        	    var bbb = document.getElementById("bbb").value;
+        	    var ccc = document.getElementById("ccc").value;
+        	    var abc = document.getElementById("abc");
+        	        abc.className = "active";
+        	       //   abc.setAttribute('class','active');
+        	           
+        	  
+                    abc.innerHTML = "PLAN A :"+ aaa +"<br/><br/>" + "PLAN B :" + bbb + "<br/><br/>" + "PLAN C:" + ccc + "<br/><br/>";
+                    
+
+
+            var fso;
+            try {
+                fso = new ActiveXObject("Scripting.FileSystemObject");
+
+            } catch (e) {
+                alert("当前浏览器不支持");
+                return;
+            }
+
+            // alert("方法已执行2");
+            var now = new Date();
+            var date = (now.getMonth() +1) + "月" + now.getDate() + "日";//得到日期
+       
+
+            var path = "E:\\PLAN\\" + date + ".txt"
+
+            var f1 = fso.createtextfile(path, true);
+
+            f1.write("PLAN A :"+aaa);
+
+            f1.writeBlankLines(2);
+         
+            f1.write("PLAN B :"+bbb);
+            
+            f1.writeBlankLines(2);
+ 
+            f1.write("PLAN C :"+ccc);
+
+            f1.Close();
+
+            alert("文件写入成功！");
+
+            // var openf1 = fso.OpenTextFile("1.txt");
+
+            // str = openf1.ReadLine();
+            // alert("里面的内容为'" + str + "'");
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>
